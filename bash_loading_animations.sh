@@ -37,7 +37,7 @@ active_loading_animation=${classic[@]}
 loading_animation_speed=0.25
 
 # Stop the animation and restore the normal cursor if the script is interrupted
-trap stop_progress_bar SIGINT
+trap stop_loading_animation SIGINT
 
 loading_animation() {
   while true ; do
