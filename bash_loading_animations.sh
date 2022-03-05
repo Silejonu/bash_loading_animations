@@ -88,7 +88,7 @@ exit 0
 ### How-to ###
 ##############
 
-# To add loading animations to your scripts, simply do the following:
+# Use the chosen loading animation this way:
 start_loading_animation
 your_command_here
 stop_loading_animation
