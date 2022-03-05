@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## List of available loading animations
-# ASCII
+# ASCII - The following animations will work in all terminals, including TTY:
 classic=( \- \\ \| \/ )
 box=( ┤ ┴ ├ ┬ )
 bubble=( · o O o )
@@ -9,7 +9,7 @@ breathe=( '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
 growing_dots=( '.  ' '.. ' '...' '.. ' )
 passing_dots=( '.  ' '.. ' ' ..' '  .' '   ' )
 metro=( '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
-# UTF-8
+# UTF-8 - The following animations require a terminal that supports Unicode (most modern terminals do), they will NOT work in TTY:
 classic_utf8=( \— \\ \| \/ )
 bounce=( . · ˙ · )
 vertical_block=( ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▇ ▆ ▅ ▄ ▃ )
