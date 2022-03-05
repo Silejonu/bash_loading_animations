@@ -22,18 +22,18 @@ braille=( ⠁ ⠂ ⠄ ⡀ ⢀ ⠠ ⠐ ⠈ )
 braille_whitespace=( ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ )
 trigram=( ☰ ☱ ☳ ☶ ☴ )
 clock=( 🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 )
-arrow=( ▹▹▹▹▹ ▸▹▹▹▹ ▹▸▹▹▹ ▹▹▸▹▹ ▹▹▹▸▹ ▹▹▹▹▸ )
+arrow=( '▹▹▹▹▹' '▸▹▹▹▹' '▹▸▹▹▹' '▹▹▸▹▹' '▹▹▹▸▹' '▹▹▹▹▸' )
 bouncing_ball=( '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' '(●     )' )
 earth=( 🌍 🌎 🌏 )
-pong=( ▐⠂       ▌ ▐⠈       ▌ ▐ ⠂      ▌ ▐ ⠠      ▌ ▐  ⡀     ▌ ▐  ⠠     ▌ ▐   ⠂    ▌ ▐   ⠈    ▌ ▐    ⠂   ▌ ▐    ⠠   ▌ ▐     ⡀  ▌ ▐     ⠠  ▌ ▐      ⠂ ▌ ▐      ⠈ ▌ ▐       ⠂▌ ▐       ⠠▌ ▐       ⡀▌ ▐      ⠠ ▌ ▐      ⠂ ▌ ▐     ⠈  ▌ ▐     ⠂  ▌ ▐    ⠠   ▌ ▐    ⡀   ▌ ▐   ⠠    ▌ ▐   ⠂    ▌ ▐  ⠈     ▌ ▐  ⠂     ▌ ▐ ⠠      ▌ ▐ ⡀      ▌ ▐⠠       ▌ )
-big_dot=( ∙∙∙ ●∙∙ ∙●∙ ∙∙● )
-football=(  🧑⚽️       🧑 🧑  ⚽️      🧑 🧑   ⚽️     🧑 🧑    ⚽️    🧑 🧑     ⚽️   🧑 🧑      ⚽️  🧑 🧑       ⚽️🧑  🧑      ⚽️  🧑 🧑     ⚽️   🧑 🧑    ⚽️    🧑 🧑   ⚽️     🧑 🧑  ⚽️      🧑 )
+pong=( '▐⠂       ▌' '▐⠈       ▌' '▐ ⠂      ▌' '▐ ⠠      ▌' '▐  ⡀     ▌' '▐  ⠠     ▌' '▐   ⠂    ▌' '▐   ⠈    ▌' '▐    ⠂   ▌' '▐    ⠠   ▌' '▐     ⡀  ▌' '▐     ⠠  ▌' '▐      ⠂ ▌' '▐      ⠈ ▌' '▐       ⠂▌' '▐       ⠠▌' '▐       ⡀▌' '▐      ⠠ ▌' '▐      ⠂ ▌' '▐     ⠈  ▌' '▐     ⠂  ▌' '▐    ⠠   ▌' '▐    ⡀   ▌' '▐   ⠠    ▌' '▐   ⠂    ▌' '▐  ⠈     ▌' '▐  ⠂     ▌' '▐ ⠠      ▌' '▐ ⡀      ▌' '▐⠠       ▌' )
+big_dot=( '∙∙∙' '●∙∙' '∙●∙' '∙∙●' )
+football=( ' 🧑⚽️       🧑' '🧑  ⚽️      🧑' '🧑   ⚽️     🧑' '🧑    ⚽️    🧑' '🧑     ⚽️   🧑' '🧑      ⚽️  🧑' '🧑       ⚽️🧑 ' '🧑      ⚽️  🧑' '🧑     ⚽️   🧑' '🧑    ⚽️    🧑' '🧑   ⚽️     🧑' '🧑  ⚽️      🧑' )
 orange_pulse=( 🔸 🔶 🟠 🟠 🔶 )
 blue_pulse=( 🔹 🔷 🔵 🔵 🔷 )
-modern_metro=( ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ )
+modern_metro=( '▰▱▱▱▱▱▱' '▰▰▱▱▱▱▱' '▰▰▰▱▱▱▱' '▱▰▰▰▱▱▱' '▱▱▰▰▰▱▱' '▱▱▱▰▰▰▱' '▱▱▱▱▰▰▰' '▱▱▱▱▱▰▰' '▱▱▱▱▱▱▰' '▱▱▱▱▱▱▱' )
 
 # Choose which animation will we displayed, and its speed
-active_loading_animation=${classic[@]}
+active_loading_animation="${classic[*]}"
 loading_animation_speed=0.25
 
 # Stop the animation and restore the normal cursor if the script is interrupted
@@ -43,8 +43,8 @@ loading_animation() {
   while true ; do
     tput civis
     for frame in ${active_loading_animation[@]} ; do
-      printf "\r${frame}"
-      sleep ${loading_animation_speed}
+      printf "\r%s" "${frame}"
+      sleep "${loading_animation_speed}"
     done
   done
 }
