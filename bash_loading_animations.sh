@@ -13,7 +13,7 @@ classic=( \- \\ \| \/ )
 box=( ┤ ┴ ├ ┬ )
 bubble=( · o O o )
 breathe=( '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
-growing_dots=( '.  ' '.. ' '...' '.. ' )
+growing_dots=( '.  ' '.. ' '...' '.. ' '   ' )
 passing_dots=( '.  ' '.. ' ' ..' '  .' '   ' )
 metro=( '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
 # UTF-8 - The following animations require a terminal that supports Unicode (most modern terminals do), they will NOT work in TTY:
