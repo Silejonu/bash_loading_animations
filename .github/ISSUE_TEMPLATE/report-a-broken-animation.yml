@@ -41,8 +41,8 @@ body:
       options:
         - label: My terminal does indeed support UTF-8
         - label: I want to report an issue with an ASCII animation
-      validations:
-        required: true
+    validations:
+      required: true
   - type: input
     id: font
     attributes:
