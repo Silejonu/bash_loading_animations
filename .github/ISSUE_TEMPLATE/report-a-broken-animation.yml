@@ -13,7 +13,7 @@ body:
     id: affected-animation
     attributes:
       label: Affected animation
-      description: If you found that several animations have issues, please fill a bug report for each of them.
+      description: If you found that several animations have issues, please fill a separate bug report for each of them.
       placeholder: ex. classic
     validations:
       required: true
