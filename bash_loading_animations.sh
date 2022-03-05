@@ -67,7 +67,7 @@ loading_animation() {
 
 start_loading_animation() {
   loading_animation &
-  loading_animation_id=$!
+  loading_animation_id="${!}"
 }
 
 stop_loading_animation() {
@@ -113,7 +113,7 @@ trap stop_loading_animation SIGINT
 # remove this line when you're done              Copy-paste your favourite animation below        Change the animation speed below
 # remove this line when you're done                             ˅˅˅˅˅˅˅˅˅˅˅                                 ˅˅˅˅˅˅˅˅˅˅
 loading_animation() { while true ; do tput civis ; for frame in \- \\ \| \/ ; do printf "\r%s" "${frame}" ; sleep 0.25 ; done ; done }
-start_loading_animation() { loading_animation & loading_animation_id=$! ; }
+start_loading_animation() { loading_animation & loading_animation_id="${!}" ; }
 stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
 
 ##########################
@@ -121,4 +121,4 @@ stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\
 ##########################
 # remove this line when you're done                                                   Copy-paste your favourite animation below        Change the animation speed below
 # remove this line when you're done                                                                  ˅˅˅˅˅˅˅˅˅˅˅                                 ˅˅˅˅˅˅˅˅˅˅
-trap stop_loading_animation SIGINT ; loading_animation() { while true ; do tput civis ; for frame in \- \\ \| \/ ; do printf "\r%s" "${frame}" ; sleep 0.25 ; done ; done } ; start_loading_animation() { loading_animation & loading_animation_id=$! ; } ; stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
+trap stop_loading_animation SIGINT ; loading_animation() { while true ; do tput civis ; for frame in \- \\ \| \/ ; do printf "\r%s" "${frame}" ; sleep 0.25 ; done ; done } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
