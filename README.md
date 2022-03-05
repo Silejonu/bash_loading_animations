@@ -1,9 +1,9 @@
-# bash_loading_animations
+# The ultimate Bash loading animations collection
 Ready-to-use loading animations in ASCII and UTF-8 for easy integration into your Bash scripts.
 
-![](https://github.com/Silejonu/bash_loading_animations/blob/main/demo.gif)
+**Have an idea for a nice-looking animation? [Please help expand the collection!](https://github.com/Silejonu/bash_loading_animations/issues/new?assignees=Silejonu&labels=enhancement&template=add-an-animation.yml&title=%5BNew+animation%5D+)**
 
-**If you have some good-looking animations or ideas, please make a pull request, or open an issue!**
+![](https://github.com/Silejonu/bash_loading_animations/blob/main/demo.gif)
 
 ⚠ ***Important note:*** use `git clone https://github.com/Silejonu/bash_loading_animations` or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh` to get the script. If you don't, **you will have broken animations**, as some non-breaking spaces will be converted into regular spaces.
 
