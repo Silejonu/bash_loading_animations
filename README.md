@@ -1,4 +1,4 @@
-# The ultimate Bash loading animations collection
+# The ultimate loading animations collection for Bash
 Ready-to-use loading animations in ASCII and UTF-8 for easy integration into your Bash scripts.
 
 **Have an idea for a nice-looking animation? [Please help expand the collection!](https://github.com/Silejonu/bash_loading_animations/issues/new?assignees=Silejonu&labels=enhancement&template=add-an-animation.yml&title=%5BNew+animation%5D+)**
