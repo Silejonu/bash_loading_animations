@@ -18,9 +18,8 @@ body:
         or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh`
         If you did not, **broken animations are to be expected**, as doing otherwise will convert the non-breaking spaces to regular spaces.
       options:
+        - label: I used `git clone` and/or `wget` to download the script, and I still have an issue.
           required: true
-        - label: I used `git clone` to download the script, and I still have an issue.
-        - label: I used `wget` to download the script, and I still have an issue.
   - type: input
     id: affected-animation
     attributes:
