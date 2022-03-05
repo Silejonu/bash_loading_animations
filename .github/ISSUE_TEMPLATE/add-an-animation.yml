@@ -2,8 +2,8 @@ name: Add an animation
 description: Propose a new animation to be included.
 title: "[New animation] "
 labels: ["enhancement"]
-assignees: Silejonu
-  - octocat
+assignees:
+  - Silejonu
 body:
   - type: markdown
     attributes:
