@@ -8,7 +8,18 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to improve the collection!
+  - type: checkboxes
+    id: download-method
+    attributes:
+      label: Download method
+      description: Make sure to download the script via |
+        `git clone https://github.com/Silejonu/bash_loading_animations` |
+        or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh` |
+        If you did not, **you will have broken animations**, as some non-breaking spaces are converted into regular spaces.
+      options:
+        - label: I used one of the above methods to download the script, and I still have an issue.
+          required: true
   - type: input
     id: affected-animation
     attributes:
