@@ -1,7 +1,7 @@
 # bash_loading_animations
 Ready-to-use loading animations in ASCII and UTF-8 for easy integration into your Bash scripts.
 
-If you have some good-looking animations or ideas, please do a pull request, or open an issue!
+**If you have some good-looking animations or ideas, please do a pull request, or open an issue!**
 
 ## Demo:
 ![](https://github.com/Silejonu/bash_loading_animations/blob/main/bash_loading_animations.gif)
