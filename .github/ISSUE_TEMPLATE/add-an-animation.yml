@@ -14,7 +14,7 @@ body:
     attributes:
       label: Animation
       description:
-        Enter the animation(s) you'd like to be included (one per line)
+        "Enter the animation(s) you'd like to be included (one per line)
         
         format: `animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
         
@@ -28,7 +28,7 @@ body:
         
         All frames in a single animation *must* be of equal width.
         
-        Add non-breaking spaces to overwrite the characters from the last frame.
+        Add non-breaking spaces to overwrite the characters from the last frame."
         
       render: shell
       placeholder:
