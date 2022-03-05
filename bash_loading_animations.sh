@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+#%% Add the code between this box and the other similar one to the top of your script %%#
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+
 ## List of available loading animations
+## You can safely remove the lines of the animations you don't want to use
 # ASCII - The following animations will work in all terminals, including TTY:
 classic=( \- \\ \| \/ )
 box=( ┤ ┴ ├ ┬ )
@@ -32,9 +39,14 @@ orange_pulse=( 🔸 🔶 🟠 🟠 🔶 )
 blue_pulse=( 🔹 🔷 🔵 🔵 🔷 )
 modern_metro=( '▰▱▱▱▱▱▱' '▰▰▱▱▱▱▱' '▰▰▰▱▱▱▱' '▱▰▰▰▱▱▱' '▱▱▰▰▰▱▱' '▱▱▱▰▰▰▱' '▱▱▱▱▰▰▰' '▱▱▱▱▱▰▰' '▱▱▱▱▱▱▰' '▱▱▱▱▱▱▱' )
 
-# Choose which animation will we displayed, and its speed
-active_loading_animation="${classic[*]}"
-loading_animation_speed=0.25
+#########################################################
+### Edit the paragraph below to choose your animation ###
+#########################################################
+active_loading_animation="${classic[*]}" # name of the animation you want. format: "${name_of_your_animation}[*]}" (don't forget the quotes)
+loading_animation_speed=0.25 # time (in seconds) between each frame (ex: 0.15 0.5 2)
+#########################################################
+### Edit the paragraph above to choose your animation ###
+#########################################################
 
 # Stop the animation and restore the normal cursor if the script is interrupted
 trap stop_loading_animation SIGINT
@@ -60,7 +72,31 @@ stop_loading_animation() {
   tput cnorm
 }
 
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+#%% Add the code between this box and the other similar one to the top of your script %%#
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+
 # Demo the loading animation
 start_loading_animation
 sleep 10
 stop_loading_animation
+exit 0
+
+##############
+### How-to ###
+##############
+
+# To add loading animations to your scripts, simply do the following:
+start_loading_animation
+your_command_here
+stop_loading_animation
+
+# If your command prints some output in the terminal, it will mess with the loading animation.
+# To hide all output, do the following:
+your_command_here &> /dev/null
+# To hide error messages only, do the following:
+your_command_here 2> /dev/null
+# To hide standard output only, do the following:
+your_command_here 1> /dev/null
