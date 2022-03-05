@@ -32,7 +32,7 @@ orange_pulse=( 🔸 🔶 🟠 🟠 🔶 )
 blue_pulse=( 🔹 🔷 🔵 🔵 🔷 )
 modern_metro=( ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ )
 
-# Chose which animation will we displayed, and its speed
+# Choose which animation will we displayed, and its speed
 active_animation=${classic[@]}
 animation_speed=0.25
 
