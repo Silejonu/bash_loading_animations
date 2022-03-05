@@ -3,7 +3,7 @@ Ready-to-use loading animations in ASCII and UTF-8 for easy integration into you
 
 **Have an idea for a nice-looking animation? [Please help expand the collection!](https://github.com/Silejonu/bash_loading_animations/issues/new?assignees=Silejonu&labels=enhancement&template=add-an-animation.yml&title=%5BNew+animation%5D+)**
 
-![](demo.gif)
+<p align="center"> <img src=demo.gif> </p>
 
 ⚠ ***Important note:*** do not copy the raw file from your browser. Instead, use `git clone https://github.com/Silejonu/bash_loading_animations` or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh` to get the script. If you don't, **you will have broken animations**, as the non-breaking spaces will be converted into regular spaces.
 
