@@ -6,52 +6,58 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 
-## List of available loading animations
+### List of available loading animations
 ## You can safely remove the lines of the animations you don't want to use
-# ASCII - The following animations will work in all terminals, including TTY:
-classic=( \- \\ \| \/ )
-box=( ┤ ┴ ├ ┬ )
-bubble=( · o O o )
-breathe=( '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
-growing_dots=( '.  ' '.. ' '...' '.. ' '   ' )
-passing_dots=( '.  ' '.. ' ' ..' '  .' '   ' )
-metro=( '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
-# UTF-8 - The following animations require a terminal that supports Unicode (most modern terminals do), they will NOT work in TTY:
-classic_utf8=( \— \\ \| \/ )
-bounce=( . · ˙ · )
-vertical_block=( ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ ▇ ▆ ▅ ▄ ▃ )
-horizontal_block=( ▉ ▊ ▋ ▌ ▍ ▎ ▏ ▎ ▍ ▌ ▋ ▊ )
-quarter=( ▖ ▘ ▝ ▗ )
-triangle=( ◢ ◣ ◤ ◥)
-semi_circle=( ◐ ◓ ◑ ◒ )
-rotating_eyes=( ◡◡ ⊙⊙ ◠◠ )
-braille=( ⠁ ⠂ ⠄ ⡀ ⢀ ⠠ ⠐ ⠈ )
-braille_whitespace=( ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ )
-trigram=( ☰ ☱ ☳ ☶ ☴ )
-arrow=( '▹▹▹▹▹' '▸▹▹▹▹' '▹▸▹▹▹' '▹▹▸▹▹' '▹▹▹▸▹' '▹▹▹▹▸' )
-bouncing_ball=( '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' '(●     )' )
-big_dot=( '∙∙∙' '●∙∙' '∙●∙' '∙∙●' )
-modern_metro=( '▰▱▱▱▱▱▱' '▰▰▱▱▱▱▱' '▰▰▰▱▱▱▱' '▱▰▰▰▱▱▱' '▱▱▰▰▰▱▱' '▱▱▱▰▰▰▱' '▱▱▱▱▰▰▰' '▱▱▱▱▱▰▰' '▱▱▱▱▱▱▰' '▱▱▱▱▱▱▱' )
-pong=( '▐⠂       ▌' '▐⠈       ▌' '▐ ⠂      ▌' '▐ ⠠      ▌' '▐  ⡀     ▌' '▐  ⠠     ▌' '▐   ⠂    ▌' '▐   ⠈    ▌' '▐    ⠂   ▌' '▐    ⠠   ▌' '▐     ⡀  ▌' '▐     ⠠  ▌' '▐      ⠂ ▌' '▐      ⠈ ▌' '▐       ⠂▌' '▐       ⠠▌' '▐       ⡀▌' '▐      ⠠ ▌' '▐      ⠂ ▌' '▐     ⠈  ▌' '▐     ⠂  ▌' '▐    ⠠   ▌' '▐    ⡀   ▌' '▐   ⠠    ▌' '▐   ⠂    ▌' '▐  ⠈     ▌' '▐  ⠂     ▌' '▐ ⠠      ▌' '▐ ⡀      ▌' '▐⠠       ▌' )
-earth=( 🌍 🌎 🌏 )
-clock=( 🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 )
-moon=( 🌒 🌓 🌔 🌕 🌖 🌗 🌘 🌑 )
-orange_pulse=( 🔸 🔶 🟠 🟠 🔶 )
-blue_pulse=( 🔹 🔷 🔵 🔵 🔷 )
-football=( ' 🧑⚽️       🧑' '🧑  ⚽️      🧑' '🧑   ⚽️     🧑' '🧑    ⚽️    🧑' '🧑     ⚽️   🧑' '🧑      ⚽️  🧑' '🧑       ⚽️🧑 ' '🧑      ⚽️  🧑' '🧑     ⚽️   🧑' '🧑    ⚽️    🧑' '🧑   ⚽️     🧑' '🧑  ⚽️      🧑' )
-blink=( 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 )
-monkey=( 🙉 🙈 🙊 🙈 )
-sick=( 🤢 🤢 🤢 🤮 🤮 )
-bomb=( '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' '   💣' '   💣' '   💣' '   💥' '    ' )
+## The first value of an array is the interval (in seconds) between each frame
 
-#########################################################
-### Edit the paragraph below to choose your animation ###
-#########################################################
-active_loading_animation="${classic[*]}" # name of the animation you want. format: "${name_of_your_animation[*]}" (don't forget the quotes)
-loading_animation_speed=0.25 # time (in seconds) between each frame (ex: 0.15 0.5 2)
-#########################################################
-### Edit the paragraph above to choose your animation ###
-#########################################################
+# ASCII - The following animations will work in any terminal, including TTY:
+classic=( 0.25 '-' '\' '|' '/' )
+box=( 0.2 ┤ ┴ ├ ┬ )
+bubble=( 0.6 · o O O o · )
+breathe=( 0.9 '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
+growing_dots=( 0.5 '.  ' '.. ' '...' '.. ' '.  ' '   ' )
+passing_dots=( 0.25 '.  ' '.. ' ' ..' '  .' '   ' )
+metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
+
+# UTF-8 - The following animations require a terminal that supports Unicode (most modern terminals do), they will NOT work in TTY:
+classic_utf8=( 0.25 '—' '\' '|' '/' )
+bounce=( 0.3 . · ˙ · )
+vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▁ )
+horizontal_block=( 0.25 ▏ ▎ ▍ ▌ ▋ ▊ ▉ ▉ ▊ ▋ ▌ ▍ ▎ ▏ )
+quarter=( 0.25 ▖ ▘ ▝ ▗ )
+triangle=( 0.45 ◢ ◣ ◤ ◥)
+semi_circle=( 0.1 ◐ ◓ ◑ ◒ )
+rotating_eyes=( 0.4 ◡◡ ⊙⊙ ⊙⊙ ◠◠ )
+braille=( 0.2 ⠁ ⠂ ⠄ ⡀ ⢀ ⠠ ⠐ ⠈ )
+braille_whitespace=( 0.2 ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ )
+trigram=( 0.25 ☰ ☱ ☳ ☶ ☴ )
+arrow=( 0.15 ▹▹▹▹▹ ▸▹▹▹▹ ▹▸▹▹▹ ▹▹▸▹▹ ▹▹▹▸▹ ▹▹▹▹▸ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ )
+bouncing_ball=( 0.4 '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' '(●     )' )
+big_dot=( 0.7 ∙∙∙ ●∙∙ ∙●∙ ∙∙● )
+modern_metro=( 0.15 ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ )
+pong=( 0.35 '▐⠂       ▌' '▐⠈       ▌' '▐ ⠂      ▌' '▐ ⠠      ▌' '▐  ⡀     ▌' '▐  ⠠     ▌' '▐   ⠂    ▌' '▐   ⠈    ▌' '▐    ⠂   ▌' '▐    ⠠   ▌' '▐     ⡀  ▌' '▐     ⠠  ▌' '▐      ⠂ ▌' '▐      ⠈ ▌' '▐       ⠂▌' '▐       ⠠▌' '▐       ⡀▌' '▐      ⠠ ▌' '▐      ⠂ ▌' '▐     ⠈  ▌' '▐     ⠂  ▌' '▐    ⠠   ▌' '▐    ⡀   ▌' '▐   ⠠    ▌' '▐   ⠂    ▌' '▐  ⠈     ▌' '▐  ⠂     ▌' '▐ ⠠      ▌' '▐ ⡀      ▌' '▐⠠       ▌' )
+earth=( 0.45 🌍 🌎 🌏 )
+clock=( 0.2 🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 )
+moon=( 0.8 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 )
+orange_pulse=( 0.35 🔸 🔶 🟠 🟠 🔶 )
+blue_pulse=( 0.35 🔹 🔷 🔵 🔵 🔷 )
+football=( 0.25 ' 🧑⚽️       🧑' '🧑  ⚽️      🧑' '🧑   ⚽️     🧑' '🧑    ⚽️    🧑' '🧑     ⚽️   🧑' '🧑      ⚽️  🧑' '🧑       ⚽️🧑 ' '🧑      ⚽️  🧑' '🧑     ⚽️   🧑' '🧑    ⚽️    🧑' '🧑   ⚽️     🧑' '🧑  ⚽️      🧑' )
+blink=( 0.25 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 )
+sick=( 0.9 🤢 🤢 🤮 )
+monkey=( 0.4 🙉 🙈 🙊 🙈 )
+bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' '   💣' '   💣' '   💣' '   💥' '    ' '    ' )
+
+####################################################
+### Edit the line below to choose your animation ###
+####################################################
+active_loading_animation=("${classic[@]}")
+####################################################
+### Edit the line above to choose your animation ###
+####################################################
+
+# Extract the delay between each frame from the active_loading_animation array
+loading_animation_speed="${active_loading_animation[0]}"
+unset "active_loading_animation[0]"
 
 # Stop the animation and restore the normal cursor if the script is interrupted
 trap stop_loading_animation SIGINT
@@ -59,7 +65,7 @@ trap stop_loading_animation SIGINT
 loading_animation() {
   while true ; do
     tput civis
-    for frame in ${active_loading_animation[@]} ; do
+    for frame in "${active_loading_animation[@]}" ; do
       printf "\r%s" "${frame}"
       sleep "${loading_animation_speed}"
     done
@@ -110,16 +116,13 @@ your_command_here 1> /dev/null
 ####################
 ### COMPACT MODE ###
 ####################
-trap stop_loading_animation SIGINT
-# remove this line when you're done              Copy-paste your favourite animation below        Change the animation speed below
-# remove this line when you're done                             ˅˅˅˅˅˅˅˅˅˅˅                                 ˅˅˅˅˅˅˅˅˅˅
-loading_animation() { while true ; do tput civis ; for frame in \- \\ \| \/ ; do printf "\r%s" "${frame}" ; sleep 0.25 ; done ; done }
+active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT
+loading_animation() { while true ; do tput civis ; for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; }
 start_loading_animation() { loading_animation & loading_animation_id="${!}" ; }
 stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
+
 
 ##########################
 ### ULTRA-COMPACT MODE ###
 ##########################
-# remove this line when you're done                                                   Copy-paste your favourite animation below        Change the animation speed below
-# remove this line when you're done                                                                  ˅˅˅˅˅˅˅˅˅˅˅                                 ˅˅˅˅˅˅˅˅˅˅
-trap stop_loading_animation SIGINT ; loading_animation() { while true ; do tput civis ; for frame in \- \\ \| \/ ; do printf "\r%s" "${frame}" ; sleep 0.25 ; done ; done } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
+active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT ; loading_animation() { while true ; do tput civis ; for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
