@@ -42,7 +42,7 @@ modern_metro=( '▰▱▱▱▱▱▱' '▰▰▱▱▱▱▱' '▰▰▰▱▱�
 #########################################################
 ### Edit the paragraph below to choose your animation ###
 #########################################################
-active_loading_animation="${classic[*]}" # name of the animation you want. format: "${name_of_your_animation}[*]}" (don't forget the quotes)
+active_loading_animation="${classic[*]}" # name of the animation you want. format: "${name_of_your_animation[*]}" (don't forget the quotes)
 loading_animation_speed=0.25 # time (in seconds) between each frame (ex: 0.15 0.5 2)
 #########################################################
 ### Edit the paragraph above to choose your animation ###
