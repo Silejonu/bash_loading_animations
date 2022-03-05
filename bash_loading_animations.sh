@@ -49,18 +49,18 @@ loading_animation() {
   done
 }
 
-start_progress_bar() {
+start_loading_animation() {
   loading_animation &
   loading_animation_id=$!
 }
 
-stop_progress_bar() {
+stop_loading_animation() {
   kill ${loading_animation_id} &> /dev/null
   printf "\n"
   tput cnorm
 }
 
 # Demo the loading animation
-start_progress_bar
+start_loading_animation
 sleep 10
-stop_progress_bar
+stop_loading_animation
