@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## List of available animations
+## List of available loading animations
 # ASCII
 classic=( \- \\ \| \/ )
 box=( ┤ ┴ ├ ┬ )
@@ -33,34 +33,34 @@ blue_pulse=( 🔹 🔷 🔵 🔵 🔷 )
 modern_metro=( ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ )
 
 # Choose which animation will we displayed, and its speed
-active_animation=${classic[@]}
-animation_speed=0.25
+active_loading_animation=${classic[@]}
+loading_animation_speed=0.25
 
 # Stop the animation and restore the normal cursor if the script is interrupted
 trap stop_progress_bar SIGINT
 
-animation() {
+loading_animation() {
   while true ; do
     tput civis
-    for frame in ${active_animation[@]} ; do
+    for frame in ${active_loading_animation[@]} ; do
       printf "\r${frame}"
-      sleep ${animation_speed}
+      sleep ${loading_animation_speed}
     done
   done
 }
 
 start_progress_bar() {
-  animation &
-  animation_id=$!
+  loading_animation &
+  loading_animation_id=$!
 }
 
 stop_progress_bar() {
-  kill ${animation_id} &> /dev/null
+  kill ${loading_animation_id} &> /dev/null
   printf "\n"
   tput cnorm
 }
 
-# Demo the animation
+# Demo the loading animation
 start_progress_bar
 sleep 10
 stop_progress_bar
