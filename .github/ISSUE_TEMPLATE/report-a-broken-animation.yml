@@ -32,7 +32,6 @@ body:
     id: terminal
     attributes:
       label: Terminal used
-      description: Which terminal(s) are you using?
       placeholder: ex. GNOME Terminal, Alacritty, st, Konsole, TTY…
     validations:
       required: true
@@ -40,7 +39,6 @@ body:
     id: os
     attributes:
       label: Operating System
-      description: Which operating system are you using?
       placeholder: ex. Ubuntu, Fedora, macOS, WSL…
     validations:
       required: true
@@ -58,7 +56,6 @@ body:
     id: font
     attributes:
       label: Terminal font
-      description: Which terminal font are you using?
       placeholder: ex. Noto Sans Mono, JetBrains Mono, D2Coding, Hack, DejaVu Sans Mono…
     validations:
       required: true
