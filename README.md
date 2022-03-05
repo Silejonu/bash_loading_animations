@@ -7,7 +7,7 @@ Ready-to-use loading animations in ASCII and UTF-8 for easy integration into you
 
 ⚠ ***Important note:*** use `git clone https://github.com/Silejonu/bash_loading_animations` or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh` to get the script. If you don't, **you will have broken animations**, as some non-breaking spaces will be converted into regular spaces.
 
-## Add a loading animation to your script
+## Include a loading animation in your script
 
 Add the code between the two blocks that look like this to the top of your script:
 ```
@@ -23,7 +23,7 @@ Chose your animation and its speed by editing the variables `active_loading_anim
 
 *There is also a compact version of the code that fits in 4 lines, as well as an ultra-compact version that fits in a single (long) line.*
 
-## Use a loading animation in your script
+## Show the loading animation for a command
 Simply do the following:
 ```
 start_loading_animation
