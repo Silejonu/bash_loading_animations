@@ -9,7 +9,9 @@ Ready-to-use loading animations in ASCII and UTF-8 for easy integration into you
 
 ## Include a loading animation in your script
 
-Add the code between the two blocks that look like this to the top of your script:
+1. Add the animation(s) you like to the top of your script (you can safely remove the lines of the animations you're not interested in).
+
+2. Add the code written between these blocks:
 ```
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
@@ -17,11 +19,9 @@ Add the code between the two blocks that look like this to the top of your scrip
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 ```
-You can safely remove the lines of the animations you're not interested in.
+3. Chose your animation by editing the variable `active_loading_animation`.
 
-Chose your animation and its speed by editing the variables `active_loading_animation` and `loading_animation_speed` (more precise instructions are in the script).
-
-*There is also a compact version of the code that fits in 4 lines, as well as an ultra-compact version that fits in a single (long) line.*
+*Included in the script is a compact version of the code that fits in 4 lines, as well as an ultra-compact version that fits in a single (very long) line.*
 
 ## Show the loading animation for a command
 Simply do the following:
