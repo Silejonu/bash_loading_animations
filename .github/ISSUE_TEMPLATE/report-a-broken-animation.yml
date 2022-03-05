@@ -39,8 +39,8 @@ body:
       label: UTF-8 support
       description: Please verify that your terminal supports UTF-8. Check the output of `echo -e '\xe2\x82\xac'`. If you see `€` then it is working correctly. If not, you may need to enable UTF-8 support or use a font with a wider range of supported characters.
       options:
-        - label: My terminal does indeed support UTF-8
-        - label: I want to report an issue with an ASCII animation
+        - label: "My terminal does indeed support UTF-8"
+        - label: "I want to report an issue with an ASCII animation"
     validations:
       required: true
   - type: input
@@ -57,6 +57,5 @@ body:
       label: Additional comments
       description: Anything else? Please tell us!
       placeholder: The animation foo does not loop correctly. 
-      value: "A bug happened!"
     validations:
       required: false
