@@ -106,7 +106,7 @@ your_command_here 1> /dev/null
 ### COMPACT MODE ###
 ####################
 trap stop_loading_animation SIGINT
-# remove this line when you're done                   Copy-paste your favourite animation below        Change the animation speed below
+# remove this line when you're done              Copy-paste your favourite animation below        Change the animation speed below
 # remove this line when you're done                             ˅˅˅˅˅˅˅˅˅˅˅                                 ˅˅˅˅˅˅˅˅˅˅
 loading_animation() { while true ; do tput civis ; for frame in \- \\ \| \/ ; do printf "\r%s" "${frame}" ; sleep 0.25 ; done ; done }
 start_loading_animation() { loading_animation & loading_animation_id=$! ; }
