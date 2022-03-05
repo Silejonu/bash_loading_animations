@@ -14,6 +14,7 @@ body:
     attributes:
       label: Animation
       description: "Enter the animation(s) you'd like to be included
+        
         format: `animation_name=( 'frame 01' 'frame 02' 'frame 03' 'frame 04' )` (one per line)"
       render: shell
       placeholder: animation_name=( 'frame 01' 'frame 02' 'frame 03' 'frame 04' )
