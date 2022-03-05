@@ -1,0 +1,62 @@
+name: Report a broken animation
+description: Report a display issue with an existing animation
+title: "[Broken animation] "
+labels: ["bug"]
+assignees: Silejonu
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: affected-animation
+    attributes:
+      label: Affected animation
+      description: If you found that several animations have issues, please fill a bug report for each of them.
+      placeholder: ex. classic
+    validations:
+      required: true
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal used
+      description: Which terminal(s) are you using?
+      placeholder: ex. GNOME Terminal, Alacritty, st, Konsole, TTY…
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: Which operating system are you using?
+      placeholder: ex. Ubuntu, Fedora, macOS, WSL…
+    validations:
+      required: true
+  - type: dropdown
+    id: unicode
+    attributes:
+      label: UTF-8 support
+      description: Please verify that your terminal supports UTF-8. Check the output of `echo -e '\xe2\x82\xac'`. If you see `€` then it is working correctly. If not, you may need to enable UTF-8 support or use a font with a wider range of supported characters.
+      options:
+        - label: My terminal does indeed support UTF-8
+        - label: I want to report an issue with an ASCII animation
+      validations:
+        required: true
+  - type: input
+    id: font
+    attributes:
+      label: Terminal font
+      description: Which terminal font are you using?
+      placeholder: ex. Noto Sans Mono, JetBrains Mono, D2Coding, Hack, DejaVu Sans Mono…
+    validations:
+      required: true
+  - type: textarea
+    id: additional-comments
+    attributes:
+      label: Additional comments
+      description: Anything else? Please tell us!
+      placeholder: The animation foo does not loop correctly. 
+      value: "A bug happened!"
+    validations:
+      required: false
