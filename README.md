@@ -6,6 +6,8 @@ Ready-to-use loading animations in ASCII and UTF-8 for easy integration into you
 **If you have some good-looking animations or ideas, please make a pull request, or open an issue!**
 
 ## Add a loading animation to your script
+***Important:*** please use `git clone https://github.com/Silejonu/bash_loading_animations` or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh` to get the script. If you don't, **you will have broken animations**, as some non-breaking spaces will be converted into regular spaces.
+
 Add the code between the two blocks that look like this to the top of your script:
 ```
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
