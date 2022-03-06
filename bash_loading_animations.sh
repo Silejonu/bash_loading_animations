@@ -29,6 +29,7 @@ metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '
 
 ## UTF-8 animations ##
 # Require Unicode support (will work in most modern terminals, but not in TTY).
+# Some animations may not render properly with certain fonts.
 classic_utf8=( 0.25 '—' '\' '|' '/' )
 bounce=( 0.3 . · ˙ · )
 vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▁ )
