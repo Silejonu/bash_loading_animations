@@ -144,17 +144,17 @@ exit 0
 ################### show loading animations in your script. ###################
 ###############################################################################
 
-# Show a loading animation for the command "your_command"
+# Show a loading animation for the command "foo"
 start_loading_animation "${name_of_the_animation[@]}"
-your_command
+foo
 stop_loading_animation
 
-# If your command prints some output in the terminal, you may want to add:
-your_command 1> /dev/null # hide standard output
+# If the command prints some output in the terminal, you may want to add:
+foo 1> /dev/null # hide standard output
 # or
-your_command 2> /dev/null # hide error messages
+foo 2> /dev/null # hide error messages
 # or
-your_command &> /dev/null # hide all output
+foo &> /dev/null # hide all output
 
 ###################################### 5 ######################################
 ###################### USE A COMPACT VERSION OF THE CODE ######################
