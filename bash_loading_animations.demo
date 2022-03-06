@@ -32,6 +32,7 @@ BLA::start_loading_animation "${BLA_big_dot[@]}" ; demo_interval BLA_big_dot "${
 BLA::start_loading_animation "${BLA_modern_metro[@]}" ; demo_interval BLA_modern_metro "${BLA_modern_metro[0]}" "${#BLA_modern_metro[@]}"
 BLA::start_loading_animation "${BLA_pong[@]}" ; demo_interval BLA_pong "${BLA_pong[0]}" "${#BLA_pong[@]}"
 BLA::start_loading_animation "${BLA_clock[@]}" ; demo_interval BLA_clock "${BLA_clock[0]}" "${#BLA_clock[@]}"
+BLA::start_loading_animation "${BLA_earth[@]}" ; demo_interval BLA_earth "${BLA_earth[0]}" "${#BLA_earth[@]}"
 BLA::start_loading_animation "${BLA_moon[@]}" ; demo_interval BLA_moon "${BLA_moon[0]}" "${#BLA_moon[@]}"
 BLA::start_loading_animation "${BLA_orange_pulse[@]}" ; demo_interval BLA_orange_pulse "${BLA_orange_pulse[0]}" "${#BLA_orange_pulse[@]}"
 BLA::start_loading_animation "${BLA_blue_pulse[@]}" ; demo_interval BLA_blue_pulse "${BLA_blue_pulse[0]}" "${#BLA_blue_pulse[@]}"
