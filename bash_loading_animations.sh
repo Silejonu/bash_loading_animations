@@ -43,7 +43,7 @@ braille=( 0.2 ⠁ ⠂ ⠄ ⡀ ⢀ ⠠ ⠐ ⠈ )
 braille_whitespace=( 0.2 ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ )
 trigram=( 0.25 ☰ ☱ ☳ ☶ ☴ )
 arrow=( 0.15 ▹▹▹▹▹ ▸▹▹▹▹ ▹▸▹▹▹ ▹▹▸▹▹ ▹▹▹▸▹ ▹▹▹▹▸ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ )
-bouncing_ball=( 0.4 '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' '(●     )' )
+bouncing_ball=( 0.4 '(●     )' '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' )
 big_dot=( 0.7 ∙∙∙ ●∙∙ ∙●∙ ∙∙● )
 modern_metro=( 0.15 ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ )
 pong=( 0.35 '▐⠂       ▌' '▐⠈       ▌' '▐ ⠂      ▌' '▐ ⠠      ▌' '▐  ⡀     ▌' '▐  ⠠     ▌' '▐   ⠂    ▌' '▐   ⠈    ▌' '▐    ⠂   ▌' '▐    ⠠   ▌' '▐     ⡀  ▌' '▐     ⠠  ▌' '▐      ⠂ ▌' '▐      ⠈ ▌' '▐       ⠂▌' '▐       ⠠▌' '▐       ⡀▌' '▐      ⠠ ▌' '▐      ⠂ ▌' '▐     ⠈  ▌' '▐     ⠂  ▌' '▐    ⠠   ▌' '▐    ⡀   ▌' '▐   ⠠    ▌' '▐   ⠂    ▌' '▐  ⠈     ▌' '▐  ⠂     ▌' '▐ ⠠      ▌' '▐ ⡀      ▌' '▐⠠       ▌' )
@@ -54,6 +54,8 @@ orange_pulse=( 0.35 🔸 🔶 🟠 🟠 🔶 )
 blue_pulse=( 0.35 🔹 🔷 🔵 🔵 🔷 )
 football=( 0.25 ' 🧑⚽️       🧑' '🧑  ⚽️      🧑' '🧑   ⚽️     🧑' '🧑    ⚽️    🧑' '🧑     ⚽️   🧑' '🧑      ⚽️  🧑' '🧑       ⚽️🧑 ' '🧑      ⚽️  🧑' '🧑     ⚽️   🧑' '🧑    ⚽️    🧑' '🧑   ⚽️     🧑' '🧑  ⚽️      🧑' )
 blink=( 0.25 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 )
+camera=( 0.1 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📸 📷 📸 )
+sparkling_camera=( 0.1 '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📸✨' '📷 ' '📸✨' )
 sick=( 0.9 🤢 🤢 🤮 )
 monkey=( 0.4 🙉 🙈 🙊 🙈 )
 bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' '   💣' '   💣' '   💣' '   💥' '    ' '    ' )
@@ -68,8 +70,7 @@ bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' ' 
 # Run stop_loading_animation if the script is interrupted
 trap stop_loading_animation SIGINT
 
-loading_animation() {
-  tput civis # Hide the terminal cursor
+play_loading_animation_loop() {
   while true ; do
     for frame in "${active_loading_animation[@]}" ; do
       printf "\r%s" "${frame}"
@@ -83,12 +84,13 @@ start_loading_animation() {
   # Extract the delay between each frame from the active_loading_animation array
   loading_animation_frame_interval="${active_loading_animation[0]}"
   unset "active_loading_animation[0]"
-  loading_animation &
-  loading_animation_id="${!}"
+  tput civis # Hide the terminal cursor
+  play_loading_animation_loop &
+  loading_animation_pid="${!}"
 }
 
 stop_loading_animation() {
-  kill "${loading_animation_id}" &> /dev/null
+  kill "${loading_animation_pid}" &> /dev/null
   printf "\n"
   tput cnorm # Restore the terminal cursor
 }
@@ -100,7 +102,7 @@ stop_loading_animation() {
 ################ You do not need to include it in your script. ################
 ###############################################################################
 
-demo_interval() { sleep 7 ; kill "${loading_animation_id}" &> /dev/null ; printf "\r                    \r" ; }
+demo_interval() { sleep 7 ; kill "${loading_animation_pid}" &> /dev/null ; printf "\r                    \r" ; }
 start_loading_animation "${classic[@]}" ; demo_interval
 start_loading_animation "${box[@]}" ; demo_interval
 start_loading_animation "${bubble[@]}" ; demo_interval
@@ -132,6 +134,8 @@ start_loading_animation "${orange_pulse[@]}" ; demo_interval
 start_loading_animation "${blue_pulse[@]}" ; demo_interval
 start_loading_animation "${football[@]}" ; demo_interval
 start_loading_animation "${blink[@]}" ; demo_interval
+start_loading_animation "${camera[@]}" ; demo_interval
+start_loading_animation "${sparkling_camera[@]}" ; demo_interval
 start_loading_animation "${sick[@]}" ; demo_interval
 start_loading_animation "${monkey[@]}" ; demo_interval
 start_loading_animation "${bomb[@]}" ; demo_interval
@@ -164,20 +168,20 @@ foo &> /dev/null # hide all output
 ###############################################################################
 
 # Max width = 80
-trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while \
+trap stop_loading_animation SIGINT ; play_loading_animation_loop() { while \
 true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" \
 "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; \
 start_loading_animation() { active_loading_animation=( "${@}" ) ; \
 loading_animation_frame_interval="${active_loading_animation[0]}" ; unset \
-"active_loading_animation[0]" ; loading_animation & \
-loading_animation_id="${!}" ; } ; stop_loading_animation() { kill \
-"${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+"active_loading_animation[0]" ; tput civis ; play_loading_animation_loop & \
+loading_animation_pid="${!}" ; } ; stop_loading_animation() { kill \
+"${loading_animation_pid}" &> /dev/null ; printf "\n" ; tput cnorm ; }
 
 # Each function on a single line
 trap stop_loading_animation SIGINT
-loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; }
-start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; loading_animation & loading_animation_id="${!}" ; }
-stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+play_loading_animation_loop() { while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; }
+start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; tput civis ; play_loading_animation_loop & loading_animation_pid="${!}" ; }
+stop_loading_animation() { kill "${loading_animation_pid}" &> /dev/null ; printf "\n" ; tput cnorm ; }
 
 # Single line
-trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+trap stop_loading_animation SIGINT ; play_loading_animation_loop() { while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; tput civis ; play_loading_animation_loop & loading_animation_pid="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_pid}" &> /dev/null ; printf "\n" ; tput cnorm ; }
