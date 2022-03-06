@@ -52,6 +52,8 @@ bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' ' 
 ### Edit the line below to choose your animation ###
 ####################################################
 active_loading_animation=("${classic[@]}")
+#                            ↑↑↑↑↑↑↑
+#  Replace this part with the name of your animation
 ####################################################
 ### Edit the line above to choose your animation ###
 ####################################################
