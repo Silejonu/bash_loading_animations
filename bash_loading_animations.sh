@@ -57,7 +57,7 @@ active_loading_animation=("${classic[@]}")
 ####################################################
 
 # Extract the delay between each frame from the active_loading_animation array
-loading_animation_speed="${active_loading_animation[0]}"
+loading_animation_frame_interval="${active_loading_animation[0]}"
 unset "active_loading_animation[0]"
 
 # Stop the animation and restore the normal cursor if the script is interrupted
@@ -68,7 +68,7 @@ loading_animation() {
   while true ; do
     for frame in "${active_loading_animation[@]}" ; do
       printf "\r%s" "${frame}"
-      sleep "${loading_animation_speed}"
+      sleep "${loading_animation_frame_interval}"
     done
   done
 }
@@ -117,8 +117,8 @@ your_command_here 1> /dev/null
 ####################
 ### COMPACT MODE ###
 ####################
-active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT
-loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; }
+active_loading_animation=("${classic[@]}") ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT
+loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; }
 start_loading_animation() { loading_animation & loading_animation_id="${!}" ; }
 stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
 
@@ -126,4 +126,4 @@ stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf 
 ##########################
 ### ULTRA-COMPACT MODE ###
 ##########################
-active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+active_loading_animation=("${classic[@]}") ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
