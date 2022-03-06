@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+source ./bash_loading_animations.sh
+
+demo_interval() { sleep 3 ; kill "${BLA_loading_animation_pid}" &> /dev/null ; echo "$1" ; }
+BLA::start_loading_animation "${BLA_classic[@]}" ; demo_interval BLA_classic
+BLA::start_loading_animation "${BLA_box[@]}" ; demo_interval BLA_box
+BLA::start_loading_animation "${BLA_bubble[@]}" ; demo_interval BLA_bubble
+BLA::start_loading_animation "${BLA_breathe[@]}" ; demo_interval BLA_breathe
+BLA::start_loading_animation "${BLA_growing_dots[@]}" ; demo_interval BLA_growing_dots
+BLA::start_loading_animation "${BLA_passing_dots[@]}" ; demo_interval BLA_passing_dots
+BLA::start_loading_animation "${BLA_metro[@]}" ; demo_interval BLA_metro
+BLA::start_loading_animation "${BLA_classic_utf8[@]}" ; demo_interval BLA_classic_utf8
+BLA::start_loading_animation "${BLA_bounce[@]}" ; demo_interval BLA_bounce
+BLA::start_loading_animation "${BLA_vertical_block[@]}" ; demo_interval BLA_vertical_block
+BLA::start_loading_animation "${BLA_horizontal_block[@]}" ; demo_interval BLA_horizontal_block
+BLA::start_loading_animation "${BLA_quarter[@]}" ; demo_interval BLA_quarter
+BLA::start_loading_animation "${BLA_triangle[@]}" ; demo_interval BLA_triangle
+BLA::start_loading_animation "${BLA_semi_circle[@]}" ; demo_interval BLA_semi_circle
+BLA::start_loading_animation "${BLA_rotating_eyes[@]}" ; demo_interval BLA_rotating_eyes
+BLA::start_loading_animation "${BLA_firework[@]}" ; demo_interval BLA_firework
+BLA::start_loading_animation "${BLA_braille[@]}" ; demo_interval BLA_braille
+BLA::start_loading_animation "${BLA_braille_whitespace[@]}" ; demo_interval BLA_braille_whitespace
+BLA::start_loading_animation "${BLA_trigram[@]}" ; demo_interval BLA_trigram
+BLA::start_loading_animation "${BLA_arrow[@]}" ; demo_interval BLA_arrow
+BLA::start_loading_animation "${BLA_bouncing_ball[@]}" ; demo_interval BLA_bouncing_ball
+BLA::start_loading_animation "${BLA_big_dot[@]}" ; demo_interval BLA_big_dot
+BLA::start_loading_animation "${BLA_modern_metro[@]}" ; demo_interval BLA_modern_metro
+BLA::start_loading_animation "${BLA_pong[@]}" ; demo_interval BLA_pong
+BLA::start_loading_animation "${BLA_clock[@]}" ; demo_interval BLA_clock
+BLA::start_loading_animation "${BLA_moon[@]}" ; demo_interval BLA_moon
+BLA::start_loading_animation "${BLA_orange_pulse[@]}" ; demo_interval BLA_orange_pulse
+BLA::start_loading_animation "${BLA_blue_pulse[@]}" ; demo_interval BLA_blue_pulse
+BLA::start_loading_animation "${BLA_football[@]}" ; demo_interval BLA_football
+BLA::start_loading_animation "${BLA_blink[@]}" ; demo_interval BLA_blink
+BLA::start_loading_animation "${BLA_camera[@]}" ; demo_interval BLA_camera
+BLA::start_loading_animation "${BLA_sparkling_camera[@]}" ; demo_interval BLA_sparkling_camera
+BLA::start_loading_animation "${BLA_sick[@]}" ; demo_interval BLA_sick
+BLA::start_loading_animation "${BLA_monkey[@]}" ; demo_interval BLA_monkey
+BLA::start_loading_animation "${BLA_bomb[@]}" ; demo_interval BLA_bomb
+exit 0
