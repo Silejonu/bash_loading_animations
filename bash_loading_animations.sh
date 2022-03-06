@@ -98,7 +98,7 @@ stop_loading_animation() {
 ########## The code below serves as a way to preview the animations. ##########
 ################ You do not need to include it in your script. ################
 ###############################################################################
-clear
+
 demo_interval() { sleep 7 ; kill "${loading_animation_id}" &> /dev/null ; printf "\r                    \r" ; }
 start_loading_animation "${classic[@]}" ; demo_interval
 start_loading_animation "${box[@]}" ; demo_interval
