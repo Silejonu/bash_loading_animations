@@ -79,7 +79,7 @@ start_loading_animation() {
 }
 
 stop_loading_animation() {
-  kill ${loading_animation_id} &> /dev/null
+  kill "${loading_animation_id}" &> /dev/null
   printf "\n"
   tput cnorm
 }
@@ -120,10 +120,10 @@ your_command_here 1> /dev/null
 active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT
 loading_animation() { while true ; do tput civis ; for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; }
 start_loading_animation() { loading_animation & loading_animation_id="${!}" ; }
-stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
+stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
 
 
 ##########################
 ### ULTRA-COMPACT MODE ###
 ##########################
-active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT ; loading_animation() { while true ; do tput civis ; for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill ${loading_animation_id} &> /dev/null ; printf "\n" ; tput cnorm ; }
+active_loading_animation=("${classic[@]}") ; loading_animation_speed="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT ; loading_animation() { while true ; do tput civis ; for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_speed}" ; done ; done ; } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
