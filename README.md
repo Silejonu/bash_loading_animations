@@ -39,7 +39,7 @@ your_command 1> /dev/null # hide standard output
 # or
 your_command 2> /dev/null # hide error messages
 # or
-your_command &> /dev/null # hiding all output
+your_command &> /dev/null # hide all output
 ```
 
 ##
