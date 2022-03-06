@@ -18,9 +18,11 @@ body:
         
         format: `animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
         
-        * The interval between each frame can be any number and is expressed in seconds.
+        * The interval between each frame must be a number and is expressed in seconds.
         
         * You can include as little or as much frames as you want (well, maybe not 1 or 999!).
+        
+        * Each frame must be separated by a space.
         
         * Do not quote the frames unless you need to, in which case, use single-quotes.
         
