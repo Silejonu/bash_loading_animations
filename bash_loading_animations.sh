@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
 
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#%% Add the code between this box and its twin to the top of your script %%#
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+##### Table of contents #####
+# 1. Loading animations list
+# 2. Main code
+# 3. Demo the animations
+# 4. Usage
+# 5. Compact versions of the main code
 
-### List of available loading animations
-## You can safely remove the lines of the animations you don't want to use
-## The first value of an array is the interval (in seconds) between each frame
+###################################### 1 ######################################
+############# COPY THE ANIMATIONS BELOW TO THE TOP OF YOUR SCRIPT #############
+###############################################################################
+################### You can safely remove the lines for the ###################
+#################### animations you are not interested in. ####################
+###############################################################################
 
-# ASCII - The following animations will work in any terminal, including TTY:
+### Loading animations list
+# The first value of an array is the interval (in seconds) between each frame
+
+## ASCII animations ##
+# Will work in any terminal, including the TTY.
 classic=( 0.25 '-' '\' '|' '/' )
 box=( 0.2 ┤ ┴ ├ ┬ )
 bubble=( 0.6 · o O O o · )
@@ -19,7 +27,8 @@ growing_dots=( 0.5 '.  ' '.. ' '...' '.. ' '.  ' '   ' )
 passing_dots=( 0.25 '.  ' '.. ' ' ..' '  .' '   ' )
 metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
 
-# UTF-8 - The following animations require a terminal that supports Unicode (most modern terminals do), they will NOT work in TTY:
+## UTF-8 animations ##
+# Require Unicode support (will work in most modern terminals, but not in TTY).
 classic_utf8=( 0.25 '—' '\' '|' '/' )
 bounce=( 0.3 . · ˙ · )
 vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▁ )
@@ -48,25 +57,18 @@ sick=( 0.9 🤢 🤢 🤮 )
 monkey=( 0.4 🙉 🙈 🙊 🙈 )
 bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' '   💣' '   💣' '   💣' '   💥' '    ' '    ' )
 
-####################################################
-### Edit the line below to choose your animation ###
-####################################################
-active_loading_animation=("${classic[@]}")
-#                            ↑↑↑↑↑↑↑
-#  Replace this part with the name of your animation
-####################################################
-### Edit the line above to choose your animation ###
-####################################################
+###################################### 2 ######################################
+##### COPY THE CODE BELOW IN YOUR SCRIPT, RIGHT AFTER THE ANIMATIONS LIST #####
+###############################################################################
+############## If you would prefer to use a more compact version ##############
+################# of this code, go to the bottom of the file. #################
+###############################################################################
 
-# Extract the delay between each frame from the active_loading_animation array
-loading_animation_frame_interval="${active_loading_animation[0]}"
-unset "active_loading_animation[0]"
-
-# Stop the animation and restore the normal cursor if the script is interrupted
+# Run stop_loading_animation if the script is interrupted
 trap stop_loading_animation SIGINT
 
 loading_animation() {
-  tput civis
+  tput civis # Hide the terminal cursor
   while true ; do
     for frame in "${active_loading_animation[@]}" ; do
       printf "\r%s" "${frame}"
@@ -76,6 +78,10 @@ loading_animation() {
 }
 
 start_loading_animation() {
+  active_loading_animation=( "${@}" )
+  # Extract the delay between each frame from the active_loading_animation array
+  loading_animation_frame_interval="${active_loading_animation[0]}"
+  unset "active_loading_animation[0]"
   loading_animation &
   loading_animation_id="${!}"
 }
@@ -83,49 +89,94 @@ start_loading_animation() {
 stop_loading_animation() {
   kill "${loading_animation_id}" &> /dev/null
   printf "\n"
-  tput cnorm
+  tput cnorm # Restore the terminal cursor
 }
 
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#%% Add the code between this box and its twin to the top of your script %%#
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
-#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+###################################### 3 ######################################
+######################### DEMO THE LOADING ANIMATIONS #########################
+###############################################################################
+########## The code below serves as a way to preview the animations. ##########
+################ You do not need to include it in your script. ################
+###############################################################################
 
-# Demo the loading animation
-start_loading_animation
-sleep 10
-stop_loading_animation
+demo_interval() { sleep 7 ; kill "${loading_animation_id}" &> /dev/null ; printf "\r                    \r" ; }
+start_loading_animation "${classic[@]}" ; demo_interval
+start_loading_animation "${box[@]}" ; demo_interval
+start_loading_animation "${bubble[@]}" ; demo_interval
+start_loading_animation "${breathe[@]}" ; demo_interval
+start_loading_animation "${growing_dots[@]}" ; demo_interval
+start_loading_animation "${passing_dots[@]}" ; demo_interval
+start_loading_animation "${metro[@]}" ; demo_interval
+start_loading_animation "${classic_utf8[@]}" ; demo_interval
+start_loading_animation "${bounce[@]}" ; demo_interval
+start_loading_animation "${vertical_block[@]}" ; demo_interval
+start_loading_animation "${horizontal_block[@]}" ; demo_interval
+start_loading_animation "${quarter[@]}" ; demo_interval
+start_loading_animation "${triangle[@]}" ; demo_interval
+start_loading_animation "${semi_circle[@]}" ; demo_interval
+start_loading_animation "${rotating_eyes[@]}" ; demo_interval
+start_loading_animation "${firework[@]}" ; demo_interval
+start_loading_animation "${braille[@]}" ; demo_interval
+start_loading_animation "${braille_whitespace[@]}" ; demo_interval
+start_loading_animation "${trigram[@]}" ; demo_interval
+start_loading_animation "${arrow[@]}" ; demo_interval
+start_loading_animation "${bouncing_ball[@]}" ; demo_interval
+start_loading_animation "${big_dot[@]}" ; demo_interval
+start_loading_animation "${modern_metro[@]}" ; demo_interval
+start_loading_animation "${pong[@]}" ; demo_interval
+start_loading_animation "${earth[@]}" ; demo_interval
+start_loading_animation "${clock[@]}" ; demo_interval
+start_loading_animation "${moon[@]}" ; demo_interval
+start_loading_animation "${orange_pulse[@]}" ; demo_interval
+start_loading_animation "${blue_pulse[@]}" ; demo_interval
+start_loading_animation "${football[@]}" ; demo_interval
+start_loading_animation "${blink[@]}" ; demo_interval
+start_loading_animation "${sick[@]}" ; demo_interval
+start_loading_animation "${monkey[@]}" ; demo_interval
+start_loading_animation "${bomb[@]}" ; demo_interval
 exit 0
 
-##############
-### How-to ###
-##############
+###################################### 4 ######################################
+#################################### USAGE ####################################
+###############################################################################
+################## Read below for the explanations on how to ##################
+################### show loading animations in your script. ###################
+###############################################################################
 
-# Use the chosen loading animation this way:
-start_loading_animation
-your_command_here
+# Show a loading animation for the command "your_command"
+start_loading_animation "${name_of_the_animation[@]}"
+your_command
 stop_loading_animation
 
-# If your command prints some output in the terminal, it will mess with the loading animation.
-# To hide all output, do the following:
-your_command_here &> /dev/null
-# To hide error messages only, do the following:
-your_command_here 2> /dev/null
-# To hide standard output only, do the following:
-your_command_here 1> /dev/null
+# If your command prints some output in the terminal, you may want to add:
+your_command 1> /dev/null # hide standard output
+# or
+your_command 2> /dev/null # hide error messages
+# or
+your_command &> /dev/null # hiding all output
 
+###################################### 5 ######################################
+###################### USE A COMPACT VERSION OF THE CODE ######################
+###############################################################################
+######### Copy one of the paragraphs below at the top of your script, #########
+####################### just after the animations list. #######################
+###############################################################################
 
-####################
-### COMPACT MODE ###
-####################
-active_loading_animation=("${classic[@]}") ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT
+# Max width = 80
+trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while \
+true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" \
+"${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; \
+start_loading_animation() { active_loading_animation=( "${@}" ) ; \
+loading_animation_frame_interval="${active_loading_animation[0]}" ; unset \
+"active_loading_animation[0]" ; loading_animation & \
+loading_animation_id="${!}" ; } ; stop_loading_animation() { kill \
+"${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+
+# Each function on a single line
+trap stop_loading_animation SIGINT
 loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; }
-start_loading_animation() { loading_animation & loading_animation_id="${!}" ; }
+start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; loading_animation & loading_animation_id="${!}" ; }
 stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
 
-
-##########################
-### ULTRA-COMPACT MODE ###
-##########################
-active_loading_animation=("${classic[@]}") ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; start_loading_animation() { loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+# One-liner
+trap stop_loading_animation SIGINT ; loading_animation() { tput civis ; while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; loading_animation & loading_animation_id="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_id}" &> /dev/null ; printf "\n" ; tput cnorm ; }
