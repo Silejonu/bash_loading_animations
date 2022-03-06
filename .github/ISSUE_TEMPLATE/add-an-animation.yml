@@ -28,7 +28,7 @@ body:
         
         * If you must include spaces in your animation, use **non-breaking spaces** (U+00A0), and single-quote each frame.
         
-        * All frames in a single animation **must** be of equal width. Add non-breaking spaces to fill the gaps.
+        * All frames in a single animation **must** be of equal width. Add non-breaking spaces to fill the gaps."
         
       render: shell
       placeholder:
