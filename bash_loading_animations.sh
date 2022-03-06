@@ -64,8 +64,8 @@ unset "active_loading_animation[0]"
 trap stop_loading_animation SIGINT
 
 loading_animation() {
+  tput civis
   while true ; do
-    tput civis
     for frame in "${active_loading_animation[@]}" ; do
       printf "\r%s" "${frame}"
       sleep "${loading_animation_speed}"
