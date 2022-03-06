@@ -18,7 +18,7 @@ body:
         
         format: `animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
         
-        * The interval between each frame must be a number and is expressed in seconds.
+        * `interval_between_each_frame` must be a number, expressed in seconds.
         
         * You can include as little or as much frames as you want (well, maybe not 1 or 999!).
         
@@ -28,9 +28,7 @@ body:
         
         * If you must include spaces in your animation, use **non-breaking spaces** (U+00A0), and single-quote each frame.
         
-        * All frames in a single animation **must** be of equal width.
-        
-        * Add non-breaking spaces to overwrite the characters from the last frame."
+        * All frames in a single animation **must** be of equal width. Add non-breaking spaces to fill the gaps.
         
       render: shell
       placeholder:
