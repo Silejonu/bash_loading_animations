@@ -3,7 +3,8 @@
 source ./bash_loading_animations.sh
 
 # We sleep long enough that all the characters for each animation are
-# displayed.
+# displayed.  We subtract 1 because the array is one longer than the number of
+# animations, due to the interval at [0].
 demo_interval() { s=$(echo "$2 * ($3-1)" | bc); sleep "$s" ; kill "${BLA_loading_animation_pid}" &> /dev/null ; echo "$1" ; }
 
 BLA::start_loading_animation "${BLA_classic[@]}" ; demo_interval BLA_classic "${BLA_classic[0]}" "${#BLA_classic[@]}"
