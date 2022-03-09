@@ -1,145 +1,86 @@
 #!/usr/bin/env bash
 
-##### Table of contents #####
-# 1. Loading animations list
-# 2. Main code
-# 3. Demo the animations
-# 4. Usage guide
-# 5. Compact versions of the main code
-
-###################################### 1 ######################################
-############# COPY THE ANIMATIONS BELOW TO THE TOP OF YOUR SCRIPT #############
-###############################################################################
-################### You can safely remove the lines for the ###################
-#################### animations you are not interested in. ####################
-###############################################################################
-
 ### Loading animations list
 # The first value of an array is the interval (in seconds) between each frame
 
+# shellcheck disable=SC2034 #https://github.com/koalaman/shellcheck/wiki/SC2034
+
 ## ASCII animations ##
 # Will work in any terminal, including the TTY.
-classic=( 0.25 '-' '\' '|' '/' )
-box=( 0.2 ┤ ┴ ├ ┬ )
-bubble=( 0.6 · o O O o · )
-breathe=( 0.9 '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
-growing_dots=( 0.5 '.  ' '.. ' '...' '.. ' '.  ' '   ' )
-passing_dots=( 0.25 '.  ' '.. ' '...' ' ..' '  .' '   ' )
-metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
+declare BLA_classic=( 0.25 '-' "\\" '|' '/' )
+declare BLA_box=( 0.2 ┤ ┴ ├ ┬ )
+declare BLA_bubble=( 0.6 · o O O o · )
+declare BLA_breathe=( 0.9 '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
+declare BLA_growing_dots=( 0.5 '.  ' '.. ' '...' '.. ' '.  ' '   ' )
+declare BLA_passing_dots=( 0.25 '.  ' '.. ' '...' ' ..' '  .' '   ' )
+declare BLA_metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
 
 ## UTF-8 animations ##
 # Require Unicode support (will work in most modern terminals, but not in TTY).
 # Some animations may not render properly with certain fonts.
-classic_utf8=( 0.25 '—' '\' '|' '/' )
-bounce=( 0.3 . · ˙ · )
-vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▁ )
-horizontal_block=( 0.25 ▏ ▎ ▍ ▌ ▋ ▊ ▉ ▉ ▊ ▋ ▌ ▍ ▎ ▏ )
-quarter=( 0.25 ▖ ▘ ▝ ▗ )
-triangle=( 0.45 ◢ ◣ ◤ ◥)
-semi_circle=( 0.1 ◐ ◓ ◑ ◒ )
-rotating_eyes=( 0.4 ◡◡ ⊙⊙ ⊙⊙ ◠◠ )
-firework=( 0.4 '⢀' '⠠' '⠐' '⠈' '*' '*' ' ' )
-braille=( 0.2 ⠁ ⠂ ⠄ ⡀ ⢀ ⠠ ⠐ ⠈ )
-braille_whitespace=( 0.2 ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ )
-trigram=( 0.25 ☰ ☱ ☳ ☶ ☴ )
-arrow=( 0.15 ▹▹▹▹▹ ▸▹▹▹▹ ▹▸▹▹▹ ▹▹▸▹▹ ▹▹▹▸▹ ▹▹▹▹▸ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ )
-bouncing_ball=( 0.4 '(●     )' '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' )
-big_dot=( 0.7 ∙∙∙ ●∙∙ ∙●∙ ∙∙● )
-modern_metro=( 0.15 ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ )
-pong=( 0.35 '▐⠂       ▌' '▐⠈       ▌' '▐ ⠂      ▌' '▐ ⠠      ▌' '▐  ⡀     ▌' '▐  ⠠     ▌' '▐   ⠂    ▌' '▐   ⠈    ▌' '▐    ⠂   ▌' '▐    ⠠   ▌' '▐     ⡀  ▌' '▐     ⠠  ▌' '▐      ⠂ ▌' '▐      ⠈ ▌' '▐       ⠂▌' '▐       ⠠▌' '▐       ⡀▌' '▐      ⠠ ▌' '▐      ⠂ ▌' '▐     ⠈  ▌' '▐     ⠂  ▌' '▐    ⠠   ▌' '▐    ⡀   ▌' '▐   ⠠    ▌' '▐   ⠂    ▌' '▐  ⠈     ▌' '▐  ⠂     ▌' '▐ ⠠      ▌' '▐ ⡀      ▌' '▐⠠       ▌' )
-earth=( 0.45 🌍 🌎 🌏 )
-clock=( 0.2 🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 )
-moon=( 0.8 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 )
-orange_pulse=( 0.35 🔸 🔶 🟠 🟠 🔶 )
-blue_pulse=( 0.35 🔹 🔷 🔵 🔵 🔷 )
-football=( 0.25 ' 👧⚽️       👦' '👧  ⚽️      👦' '👧   ⚽️     👦' '👧    ⚽️    👦' '👧     ⚽️   👦' '👧      ⚽️  👦' '👧       ⚽️👦 ' '👧      ⚽️  👦' '👧     ⚽️   👦' '👧    ⚽️    👦' '👧   ⚽️     👦' '👧  ⚽️      👦' )
-blink=( 0.25 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 )
-camera=( 0.1 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📸 📷 📸 )
-sparkling_camera=( 0.1 '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📸✨' '📷 ' '📸✨' )
-sick=( 0.9 🤢 🤢 🤮 )
-monkey=( 0.4 🙉 🙈 🙊 🙈 )
-bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' '   💣' '   💣' '   💣' '   💥' '    ' '    ' )
+declare BLA_classic_utf8=( 0.25 '—' "\\" '|' '/' )
+declare BLA_bounce=( 0.3 . · ˙ · )
+declare BLA_vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▁ )
+declare BLA_horizontal_block=( 0.25 ▏ ▎ ▍ ▌ ▋ ▊ ▉ ▉ ▊ ▋ ▌ ▍ ▎ ▏ )
+declare BLA_quarter=( 0.25 ▖ ▘ ▝ ▗ )
+declare BLA_triangle=( 0.45 ◢ ◣ ◤ ◥)
+declare BLA_semi_circle=( 0.1 ◐ ◓ ◑ ◒ )
+declare BLA_rotating_eyes=( 0.4 ◡◡ ⊙⊙ ⊙⊙ ◠◠ )
+declare BLA_firework=( 0.4 '⢀' '⠠' '⠐' '⠈' '*' '*' ' ' )
+declare BLA_braille=( 0.2 ⠁ ⠂ ⠄ ⡀ ⢀ ⠠ ⠐ ⠈ )
+declare BLA_braille_whitespace=( 0.2 ⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷ )
+declare BLA_trigram=( 0.25 ☰ ☱ ☳ ☶ ☴ )
+declare BLA_arrow=( 0.15 ▹▹▹▹▹ ▸▹▹▹▹ ▹▸▹▹▹ ▹▹▸▹▹ ▹▹▹▸▹ ▹▹▹▹▸ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ ▹▹▹▹▹ )
+declare BLA_bouncing_ball=( 0.4 '(●     )' '( ●    )' '(  ●   )' '(   ●  )' '(    ● )' '(     ●)' '(    ● )' '(   ●  )' '(  ●   )' '( ●    )' )
+declare BLA_big_dot=( 0.7 ∙∙∙ ●∙∙ ∙●∙ ∙∙● )
+declare BLA_modern_metro=( 0.15 ▰▱▱▱▱▱▱ ▰▰▱▱▱▱▱ ▰▰▰▱▱▱▱ ▱▰▰▰▱▱▱ ▱▱▰▰▰▱▱ ▱▱▱▰▰▰▱ ▱▱▱▱▰▰▰ ▱▱▱▱▱▰▰ ▱▱▱▱▱▱▰ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ ▱▱▱▱▱▱▱ )
+declare BLA_pong=( 0.35 '▐⠂       ▌' '▐⠈       ▌' '▐ ⠂      ▌' '▐ ⠠      ▌' '▐  ⡀     ▌' '▐  ⠠     ▌' '▐   ⠂    ▌' '▐   ⠈    ▌' '▐    ⠂   ▌' '▐    ⠠   ▌' '▐     ⡀  ▌' '▐     ⠠  ▌' '▐      ⠂ ▌' '▐      ⠈ ▌' '▐       ⠂▌' '▐       ⠠▌' '▐       ⡀▌' '▐      ⠠ ▌' '▐      ⠂ ▌' '▐     ⠈  ▌' '▐     ⠂  ▌' '▐    ⠠   ▌' '▐    ⡀   ▌' '▐   ⠠    ▌' '▐   ⠂    ▌' '▐  ⠈     ▌' '▐  ⠂     ▌' '▐ ⠠      ▌' '▐ ⡀      ▌' '▐⠠       ▌' )
+declare BLA_earth=( 0.45 🌍 🌎 🌏 )
+declare BLA_clock=( 0.2 🕛 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 )
+declare BLA_moon=( 0.8 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 )
+declare BLA_orange_pulse=( 0.35 🔸 🔶 🟠 🟠 🔶 )
+declare BLA_blue_pulse=( 0.35 🔹 🔷 🔵 🔵 🔷 )
+declare BLA_football=( 0.25 ' 👧⚽️       👦' '👧  ⚽️      👦' '👧   ⚽️     👦' '👧    ⚽️    👦' '👧     ⚽️   👦' '👧      ⚽️  👦' '👧       ⚽️👦 ' '👧      ⚽️  👦' '👧     ⚽️   👦' '👧    ⚽️    👦' '👧   ⚽️     👦' '👧  ⚽️      👦' )
+declare BLA_blink=( 0.25 😐 😐 😐 😐 😐 😐 😐 😐 😐 😑 )
+declare BLA_camera=( 0.1 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📷 📸 📷 📸 )
+declare BLA_sparkling_camera=( 0.1 '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📷 ' '📸✨' '📷 ' '📸✨' )
+declare BLA_sick=( 0.9 🤢 🤢 🤮 )
+declare BLA_monkey=( 0.4 🙉 🙈 🙊 🙈 )
+declare BLA_bomb=( 0.25 '💣   ' ' 💣  ' '  💣 ' '   💣' '   💣' '   💣' '   💣' '   💣' '   💥' '    ' '    ' )
 
-###################################### 2 ######################################
-##### COPY THE CODE BELOW IN YOUR SCRIPT, RIGHT AFTER THE ANIMATIONS LIST #####
-###############################################################################
-############## If you would prefer to use a more compact version ##############
-################# of this code, go to the bottom of the file. #################
-###############################################################################
+declare -a BLA_active_loading_animation
+declare BLA_loading_animation_frame_interval
+declare BLA_loading_animation_pid
 
 # Run stop_loading_animation if the script is interrupted
-trap stop_loading_animation SIGINT
+trap BLA::stop_loading_animation SIGINT
 
-play_loading_animation_loop() {
+BLA::play_loading_animation_loop() {
+  declare frame
   while true ; do
-    for frame in "${active_loading_animation[@]}" ; do
+    for frame in "${BLA_active_loading_animation[@]}" ; do
       printf "\r%s" "${frame}"
-      sleep "${loading_animation_frame_interval}"
+      sleep "${BLA_loading_animation_frame_interval}"
     done
   done
 }
 
-start_loading_animation() {
-  active_loading_animation=( "${@}" )
+BLA::start_loading_animation() {
+  BLA_active_loading_animation=( "${@}" )
   # Extract the delay between each frame from the active_loading_animation array
-  loading_animation_frame_interval="${active_loading_animation[0]}"
-  unset "active_loading_animation[0]"
+  BLA_loading_animation_frame_interval="${BLA_active_loading_animation[0]}"
+  unset "BLA_active_loading_animation[0]"
   tput civis # Hide the terminal cursor
-  play_loading_animation_loop &
-  loading_animation_pid="${!}"
+  BLA::play_loading_animation_loop &
+  BLA_loading_animation_pid="${!}"
 }
 
-stop_loading_animation() {
-  kill "${loading_animation_pid}" &> /dev/null
+BLA::stop_loading_animation() {
+  kill "${BLA_loading_animation_pid}" &> /dev/null
   printf "\n"
   tput cnorm # Restore the terminal cursor
 }
 
-###################################### 3 ######################################
-######################### DEMO THE LOADING ANIMATIONS #########################
-###############################################################################
-########## The code below serves as a way to preview the animations. ##########
-################ You do not need to include it in your script. ################
-###############################################################################
-
-demo_interval() { sleep 7 ; kill "${loading_animation_pid}" &> /dev/null ; printf "\r                    \r" ; }
-start_loading_animation "${classic[@]}" ; demo_interval
-start_loading_animation "${box[@]}" ; demo_interval
-start_loading_animation "${bubble[@]}" ; demo_interval
-start_loading_animation "${breathe[@]}" ; demo_interval
-start_loading_animation "${growing_dots[@]}" ; demo_interval
-start_loading_animation "${passing_dots[@]}" ; demo_interval
-start_loading_animation "${metro[@]}" ; demo_interval
-start_loading_animation "${classic_utf8[@]}" ; demo_interval
-start_loading_animation "${bounce[@]}" ; demo_interval
-start_loading_animation "${vertical_block[@]}" ; demo_interval
-start_loading_animation "${horizontal_block[@]}" ; demo_interval
-start_loading_animation "${quarter[@]}" ; demo_interval
-start_loading_animation "${triangle[@]}" ; demo_interval
-start_loading_animation "${semi_circle[@]}" ; demo_interval
-start_loading_animation "${rotating_eyes[@]}" ; demo_interval
-start_loading_animation "${firework[@]}" ; demo_interval
-start_loading_animation "${braille[@]}" ; demo_interval
-start_loading_animation "${braille_whitespace[@]}" ; demo_interval
-start_loading_animation "${trigram[@]}" ; demo_interval
-start_loading_animation "${arrow[@]}" ; demo_interval
-start_loading_animation "${bouncing_ball[@]}" ; demo_interval
-start_loading_animation "${big_dot[@]}" ; demo_interval
-start_loading_animation "${modern_metro[@]}" ; demo_interval
-start_loading_animation "${pong[@]}" ; demo_interval
-start_loading_animation "${earth[@]}" ; demo_interval
-start_loading_animation "${clock[@]}" ; demo_interval
-start_loading_animation "${moon[@]}" ; demo_interval
-start_loading_animation "${orange_pulse[@]}" ; demo_interval
-start_loading_animation "${blue_pulse[@]}" ; demo_interval
-start_loading_animation "${football[@]}" ; demo_interval
-start_loading_animation "${blink[@]}" ; demo_interval
-start_loading_animation "${camera[@]}" ; demo_interval
-start_loading_animation "${sparkling_camera[@]}" ; demo_interval
-start_loading_animation "${sick[@]}" ; demo_interval
-start_loading_animation "${monkey[@]}" ; demo_interval
-start_loading_animation "${bomb[@]}" ; demo_interval
-exit 0
 
 ###################################### 4 ######################################
 ################################# USAGE GUIDE #################################
@@ -148,40 +89,22 @@ exit 0
 ################### show loading animations in your script. ###################
 ###############################################################################
 
-# Show a loading animation for the command "foo"
-start_loading_animation "${name_of_the_animation[@]}"
-foo
-stop_loading_animation
+:<<'EXAMPLES'
 
-# If the command prints some output in the terminal, you may want to add:
+# load in the functions and animations
+source /path/to/bash_loading_animations.sh
+
+# Show a loading animation for the command "foo"
+BLA::start_loading_animation "${BLA_name_of_the_animation[@]}"
+foo
+BLA::stop_loading_animation
+
+# If the command prints some output in the terminal, you may want to add
+# one of the following:
 foo 1> /dev/null # hide standard output
 # or
 foo 2> /dev/null # hide error messages
 # or
 foo &> /dev/null # hide all output
 
-###################################### 5 ######################################
-###################### USE A COMPACT VERSION OF THE CODE ######################
-###############################################################################
-######### Copy one of the paragraphs below at the top of your script, #########
-####################### just after the animations list. #######################
-###############################################################################
-
-# Max width = 80
-trap stop_loading_animation SIGINT ; play_loading_animation_loop() { while \
-true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" \
-"${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; \
-start_loading_animation() { active_loading_animation=( "${@}" ) ; \
-loading_animation_frame_interval="${active_loading_animation[0]}" ; unset \
-"active_loading_animation[0]" ; tput civis ; play_loading_animation_loop & \
-loading_animation_pid="${!}" ; } ; stop_loading_animation() { kill \
-"${loading_animation_pid}" &> /dev/null ; printf "\n" ; tput cnorm ; }
-
-# Each function on a single line
-trap stop_loading_animation SIGINT
-play_loading_animation_loop() { while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; }
-start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; tput civis ; play_loading_animation_loop & loading_animation_pid="${!}" ; }
-stop_loading_animation() { kill "${loading_animation_pid}" &> /dev/null ; printf "\n" ; tput cnorm ; }
-
-# Single line
-trap stop_loading_animation SIGINT ; play_loading_animation_loop() { while true ; do for frame in "${active_loading_animation[@]}" ; do printf "\r%s" "${frame}" ; sleep "${loading_animation_frame_interval}" ; done ; done ; } ; start_loading_animation() { active_loading_animation=( "${@}" ) ; loading_animation_frame_interval="${active_loading_animation[0]}" ; unset "active_loading_animation[0]" ; tput civis ; play_loading_animation_loop & loading_animation_pid="${!}" ; } ; stop_loading_animation() { kill "${loading_animation_pid}" &> /dev/null ; printf "\n" ; tput cnorm ; }
+EXAMPLES
