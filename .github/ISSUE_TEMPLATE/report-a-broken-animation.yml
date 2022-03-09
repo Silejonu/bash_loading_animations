@@ -18,7 +18,7 @@ body:
         or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh`
         If you did not, **broken animations are to be expected**, as doing otherwise will convert the non-breaking spaces to regular spaces.
       options:
-        - label: I used `git clone` and/or `wget` to download the script, and I still have an issue.
+        - label: I used one of the above methods to download the script, and I still have an issue.
           required: true
   - type: input
     id: affected-animation
@@ -64,6 +64,6 @@ body:
     attributes:
       label: Additional comments
       description: Anything else? Please tell us!
-      placeholder: ex. The animation foo does not loop correctly. 
+      placeholder: ex. The animation `foo` does not loop correctly. 
     validations:
       required: false
