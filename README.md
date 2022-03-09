@@ -12,29 +12,36 @@ Ready-to-use loading animations in ASCII and UTF-8 for easy integration into you
 ⚠ ***Important note:*** do not copy the raw script file from your browser or **you will have broken animations**, as the non-breaking spaces will be converted into regular spaces.
 
 Instead, use one of the following method to retrieve the script:
-```
+```bash
 git clone https://github.com/Silejonu/bash_loading_animations
-wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh
+wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.demo
 ```
+
+Run the provided script `bash_loading_animations.demo` to quickly visualise the available animations.
 
 ## Add support for loading animations to your script
 
-1. Copy the animations list from `bash_loading_animations.sh` to the top of your script
+Put these lines at the top of your script:
 
-2. Copy the code from `bash_loading_animations.sh` to the top of your script, below the animations list
+```bash
+# Load in the functions and animations
+source /path/to/bash_loading_animations.sh
+# Run BLA::stop_loading_animation if the script is interrupted
+trap BLA::stop_loading_animation SIGINT
+```
 
-*There are compact versions of the code included at the end of `bash_loading_animations.sh`.*
+*Don't forget to replace `/path/to/bash_loading_animations.sh` with the appropriate filepath.*
 
 ## Show a loading animation for `foo`
 Show a loading animation for the command `foo`:
-```
-start_loading_animation "${name_of_the_animation[@]}"
+```bash
+BLA::start_loading_animation "${BLA_name_of_the_animation[@]}"
 foo
-stop_loading_animation
+BLA::stop_loading_animation
 ```
 
-If the command prints some output in the terminal, you may want to add:
-```
+If `foo` prints some output in the terminal, you may want to add:
+```bash
 foo 1> /dev/null # hide standard output
 # or
 foo 2> /dev/null # hide error messages
