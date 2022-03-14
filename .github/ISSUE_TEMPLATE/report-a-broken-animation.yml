@@ -1,4 +1,4 @@
-name: Report a broken animation
+name: Report a broken animation.
 description: Report a display issue with an existing animation
 title: "[Broken animation] "
 labels: ["bug"]
