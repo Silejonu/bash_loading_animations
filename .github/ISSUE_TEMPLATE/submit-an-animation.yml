@@ -14,9 +14,9 @@ body:
     attributes:
       label: Animation
       description:
-        "Enter the animation(s) you'd like to be included (one per line)
+        "Describe the animation(s) you'd like to be included, or submit them in the format:
         
-        format: `animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
+        `animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
         
         * `interval_between_each_frame` is a number, expressed in seconds.
         
