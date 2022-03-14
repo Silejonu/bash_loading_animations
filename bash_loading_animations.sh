@@ -20,7 +20,7 @@ BLA_metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==
 # Some animations may not render properly with certain fonts.
 BLA_classic_utf8=( 0.25 '—' "\\" '|' '/' )
 BLA_bounce=( 0.3 . · ˙ · )
-BLA_vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▁ )
+BLA_vertical_block=( 0.25 ▁ ▂ ▃ ▄ ▅ ▆ ▇ █ █ ▇ ▆ ▅ ▄ ▃ ▂ ▁ )
 BLA_horizontal_block=( 0.25 ▏ ▎ ▍ ▌ ▋ ▊ ▉ ▉ ▊ ▋ ▌ ▍ ▎ ▏ )
 BLA_quarter=( 0.25 ▖ ▘ ▝ ▗ )
 BLA_triangle=( 0.45 ◢ ◣ ◤ ◥)
