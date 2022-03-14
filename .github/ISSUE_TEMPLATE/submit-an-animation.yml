@@ -11,9 +11,10 @@ body:
         Thanks for taking the time to expand the collection!
         Describe the animation(s) you'd like to be included, or directly submit them with the appropriate syntax.
   - type: textarea
-    id: animation
+    id: syntax
+    validations:
+      required: true
     attributes:
-      label: Syntax
       description:
         "`animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
         
