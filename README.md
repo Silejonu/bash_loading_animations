@@ -15,7 +15,7 @@ Instead, use one of the following methods to retrieve the script:
 ```bash
 git clone https://github.com/Silejonu/bash_loading_animations
 ```
-```
+```bash
 wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh
 wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.demo
 ```
