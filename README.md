@@ -14,7 +14,10 @@ Ready-to-use loading animations in ASCII and UTF-8 for easy integration into you
 Instead, use one of the following methods to retrieve the script:
 ```bash
 git clone https://github.com/Silejonu/bash_loading_animations
-wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.demo
+```
+```
+wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh
+wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.demo
 ```
 
 Run the provided script `bash_loading_animations.demo` to quickly visualise the available animations.
