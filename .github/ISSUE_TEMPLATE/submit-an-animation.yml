@@ -15,6 +15,7 @@ body:
     validations:
       required: true
     attributes:
+      label: Animation(s)
       description:
         "`animation_name=( interval_between_each_frame 'frame 01' 'frame 02' 'frame 03' 'frame 04' )`
         
