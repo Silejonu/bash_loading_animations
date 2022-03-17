@@ -14,8 +14,9 @@ body:
     attributes:
       label: Download method
       description: Make sure to download the script via
-        `git clone https://github.com/Silejonu/bash_loading_animations`
-        or `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh`
+        `git clone https://github.com/Silejonu/bash_loading_animations`,
+        `wget https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.sh`,
+        or `curl -O https://raw.githubusercontent.com/Silejonu/bash_loading_animations/main/bash_loading_animations.demo`
         If you did not, **broken animations are to be expected**, as doing otherwise will convert the non-breaking spaces to regular spaces.
       options:
         - label: I used one of the above methods to download the script, and I still have an issue.
