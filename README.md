@@ -56,5 +56,5 @@ foo 2> /dev/null # hide error messages
 foo &> /dev/null # hide all output
 ```
 
-##
-Some of the animations have been adapted from https://github.com/sindresorhus/cli-spinners.
+#
+> Some of the animations have been adapted from https://github.com/sindresorhus/cli-spinners.
