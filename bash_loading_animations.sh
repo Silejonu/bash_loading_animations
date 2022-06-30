@@ -14,6 +14,7 @@ BLA_breathe=( 0.9 '  ()  ' ' (  ) ' '(    )' ' (  ) ' )
 BLA_growing_dots=( 0.5 '.  ' '.. ' '...' '.. ' '.  ' '   ' )
 BLA_passing_dots=( 0.25 '.  ' '.. ' '...' ' ..' '  .' '   ' )
 BLA_metro=( 0.2 '[    ]' '[=   ]' '[==  ]' '[=== ]' '[ ===]' '[  ==]' '[   =]' )
+BLA_snake=( 0.15 '[=     ]' '[~<    ]' '[~~=   ]' '[~~~<  ]' '[ ~~~= ]' '[  ~~~<]' '[   ~~~]' '[    ~~]' '[     ~]' '[      ]' )
 
 ## UTF-8 animations ##
 # Require Unicode support (will work in most modern terminals, but not in TTY).
