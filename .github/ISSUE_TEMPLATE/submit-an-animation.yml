@@ -10,6 +10,7 @@ body:
       value: |
         Thanks for taking the time to expand the collection!
         Describe the animation(s) you'd like to be included, or directly submit them with the appropriate syntax.
+        Feel free to open a pull request if you prefer: just make sure to follow the guidelines described below.
   - type: textarea
     id: syntax
     validations:
