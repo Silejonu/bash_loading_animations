@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Source: https://github.com/Silejonu/bash_loading_animations
+
 # shellcheck disable=SC2034 # https://github.com/koalaman/shellcheck/wiki/SC2034
 
 ### Loading animations list ###
